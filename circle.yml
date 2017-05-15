@@ -2,23 +2,16 @@
 # Build configuration for Circle CI
 #
 
-general:
-    artifacts:
-        - /home/ubuntu/AndroidApp/app/build/outputs/apk/
-
 machine:
     environment:
         ANDROID_HOME: /usr/local/android-sdk-linux
         GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
-        _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
-  java:
-    version: oraclejdk8
     
 dependencies:
     pre:
-        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-25
-        - echo y | android update sdk --no-ui --all --filter build-tools-25.0.2
-        - echo y | android update sdk --no-ui --all --filter android-25
+        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-21
+        - echo y | android update sdk --no-ui --all --filter build-tools-21.1.2
+        - echo y | android update sdk --no-ui --all --filter android-21
         - echo y | android update sdk --no-ui --all --filter tools
         - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
         - echo y | android update sdk --no-ui --all --filter extra-android-support
